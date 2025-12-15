@@ -1,4 +1,4 @@
-import { AppLayout } from "./AppLayout/AppLayout"
+import { AppLayout } from "./layouts/AppLayout"
 import { Dashboard } from "./components/Dashboard/Dashboard"
 
 function App() {

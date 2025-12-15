@@ -1,11 +1,10 @@
-import { Button } from "@/components/ui/button"
+import { Button } from "@/ui/button";
 
 interface HeaderBalanceProps {
     Balance: number,
-    monthPercent: number
 }
 
-export const HeaderBalance = ({ Balance, monthPercent }: HeaderBalanceProps) => {
+export const HeaderBalance = ({ Balance }: HeaderBalanceProps) => {
     return (
         <div className="flex flex-col gap-1">
             <div className="bg-[#16181a]/50 p-3 rounded-lg border-border border">
@@ -13,9 +12,6 @@ export const HeaderBalance = ({ Balance, monthPercent }: HeaderBalanceProps) => 
                 <div>
                     <div className="text-[19px] -mt-0.5 text-white font-extrabold">
                         $ {Balance}
-                    </div>
-                    <div className="text-[#b9bfc4] font-semibold mt-1 text-[14px]">
-                        Change per month: <span className="text-emerald-500">{monthPercent}%</span>
                     </div>
                 </div>
             </div>
@@ -30,7 +26,7 @@ export const HeaderBalance = ({ Balance, monthPercent }: HeaderBalanceProps) => 
                         </Button>
                     </div>
                     <div className="w-10">
-                        <Button className="bg-(--color-card) border border-(--color-border) rounded-(--radius-md) w-full">
+                        <Button className="bg-(--color-card) border border-(--color-border) rounded-md w-full">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-4">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                             </svg>
