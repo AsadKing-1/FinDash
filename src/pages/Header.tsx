@@ -1,6 +1,6 @@
-import { HeaderBalance } from "@/components/Header/HeaderBalance/HeaderBalance";
-import { HeaderBrand } from "@/components/Header/HeaderBrand/HeaderBrand";
-import { HeaderNav } from "@/components/Header/HeaderNav/HeaderNav";
+import { HeaderBalance } from "../components/Header/HeaderBalance/HeaderBalance";
+import { HeaderBrand } from "../components/Header/HeaderBrand/HeaderBrand";
+import { HeaderNav } from "../components/Header/HeaderNav/HeaderNav";
 
 import { useSelector } from "react-redux";
 import { selectAvailableBalance } from "@/feature/available/available";
