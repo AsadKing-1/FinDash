@@ -6,6 +6,14 @@ import { CATEGORIES } from "@/feature/transactions/categories";
 import { addTransaction } from "@/feature/transactions/transactionsSlices";
 
 import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../../ui/select";
+
+import {
   transactionSchema,
   type TransactionFormValues,
 } from "./transaction.schema";
@@ -21,7 +29,7 @@ import {
 import { Input } from "../../ui/input";
 import { Button } from "../../ui/button";
 
-export function TransactionsForm() {
+export function TransactionsForm({ onClose }: { onClose: () => void }) {
   const dispatch = useDispatch();
 
   const form = useForm<TransactionFormValues>({
@@ -55,6 +63,7 @@ export function TransactionsForm() {
     );
 
     form.reset();
+    onClose()
   }
 
   return (
@@ -63,17 +72,36 @@ export function TransactionsForm() {
         onSubmit={form.handleSubmit(onSubmit)}
         className="bg-(--color-card) border border-(--color-border) p-5 rounded-xl flex flex-col gap-4"
       >
+        <div className="flex justify-between items-center">
+          <p className="text-[20px] font-semibold">FinDash</p>
+          <Button onClick={() => onClose()} type="button">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </Button>
+        </div>
         <FormField
           control={form.control}
           name="type"
           render={({ field }) => (
             <div className="flex gap-2">
-              {["Expense", "Income", "Savings"].map((t) => (
+              {["expense", "income", "savings"].map((t) => (
                 <Button
                   key={t}
                   type="button"
                   onClick={() => field.onChange(t)}
-                  className={`flex-1 border border-(--color-border) ${
+                  className={`flex-1 border min-w-10 w-auto border-(--color-border) ${
                     field.value === t
                       ? "bg-accent border-accent-2"
                       : "border-(--color-border)"
@@ -100,8 +128,44 @@ export function TransactionsForm() {
                     const v = e.target.value;
                     field.onChange(v === "" ? 0 : Number(v));
                   }}
-                  className="[appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
+                  className="border border-(--color-border) [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
                   placeholder="0"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="note"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Note</FormLabel>
+              <FormControl>
+                <Input
+                  className="border border-(--color-border)"
+                  type="text"
+                  onChange={(e) => field.onChange(e.target.value)}
+                  value={field.value}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Date</FormLabel>
+              <FormControl>
+                <Input
+                  type="date"
+                  onChange={(e) => field.onChange(e.target.value)}
+                  value={field.value}
+                  className="border border-(--color-border)"
                 />
               </FormControl>
               <FormMessage />
@@ -115,21 +179,25 @@ export function TransactionsForm() {
           render={({ field }) => (
             <FormItem>
               <FormLabel>Category</FormLabel>
-              <FormControl>
-                <select
-                  className="w-full rounded-md border border-(--color-border) bg-(--color-bg) p-3"
-                  {...field}
-                >
-                  <option value="">Select category</option>
+
+              <Select value={field.value} onValueChange={field.onChange}>
+                <FormControl>
+                  <SelectTrigger className="w-full border border-(--color-border)">
+                    <SelectValue placeholder="Select Category" />
+                  </SelectTrigger>
+                </FormControl>
+
+                <SelectContent className="bg-(--color-card) border border-(--color-border) w-full">
                   {CATEGORIES.filter((c) => c.type === form.watch("type")).map(
-                    (c) => (
-                      <option key={c.id} value={c.label}>
-                        {c.label}
-                      </option>
+                    (category) => (
+                      <SelectItem key={category.id} value={category.label}>
+                        {category.label}
+                      </SelectItem>
                     )
                   )}
-                </select>
-              </FormControl>
+                </SelectContent>
+              </Select>
+
               <FormMessage />
             </FormItem>
           )}

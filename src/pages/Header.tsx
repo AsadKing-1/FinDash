@@ -5,7 +5,7 @@ import { HeaderNav } from "@/components/Header/HeaderNav/HeaderNav";
 import { useSelector } from "react-redux";
 import { selectAvailableBalance } from "@/feature/available/available";
 
-function Header() {
+function Header({ openModalFN }: { openModalFN: (value: boolean) => void }) {
   const available = useSelector(selectAvailableBalance);
 
   return (
@@ -13,7 +13,7 @@ function Header() {
       <div className="flex flex-col gap-5 p-3.5">
         <HeaderBrand />
         <HeaderNav />
-        <HeaderBalance Balance={available} />
+        <HeaderBalance openModalFN={openModalFN} Balance={available} />
       </div>
     </header>
   );
