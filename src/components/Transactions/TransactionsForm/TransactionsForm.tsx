@@ -63,7 +63,7 @@ export function TransactionsForm({ onClose }: { onClose: () => void }) {
     );
 
     form.reset();
-    onClose()
+    onClose();
   }
 
   return (
@@ -121,58 +121,24 @@ export function TransactionsForm({ onClose }: { onClose: () => void }) {
             <FormItem>
               <FormLabel>Amount</FormLabel>
               <FormControl>
-                <Input
-                  type="number"
-                  value={field.value === 0 ? "" : field.value}
-                  onChange={(e) => {
-                    const v = e.target.value;
-                    field.onChange(v === "" ? 0 : Number(v));
-                  }}
-                  className="border border-(--color-border) [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
-                  placeholder="0"
-                />
+                <div className="flex justify-between items-center gap-2">
+                  <p className="font-bold text-[20px]">$</p>
+                  <Input
+                    type="number"
+                    value={field.value === 0 ? "" : field.value}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      field.onChange(v === "" ? 0 : Number(v));
+                    }}
+                    className="border-l-0 text-[30px] font-bold border-r-0 border-t-0 border-b-2 py-6 border-(--color-border) focus:border-b-accent-2 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
+                    placeholder="0"
+                  />
+                </div>
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        <FormField
-          control={form.control}
-          name="note"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Note</FormLabel>
-              <FormControl>
-                <Input
-                  className="border border-(--color-border)"
-                  type="text"
-                  onChange={(e) => field.onChange(e.target.value)}
-                  value={field.value}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="date"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Date</FormLabel>
-              <FormControl>
-                <Input
-                  type="date"
-                  onChange={(e) => field.onChange(e.target.value)}
-                  value={field.value}
-                  className="border border-(--color-border)"
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <FormField
           control={form.control}
           name="category"
@@ -198,6 +164,43 @@ export function TransactionsForm({ onClose }: { onClose: () => void }) {
                 </SelectContent>
               </Select>
 
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="note"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Note</FormLabel>
+              <FormControl>
+                <Input
+                  className="border border-(--color-border)"
+                  type="text"
+                  onChange={(e) => field.onChange(e.target.value)}
+                  value={field.value}
+                  placeholder="Description"
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="date"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Date</FormLabel>
+              <FormControl>
+                <Input
+                  type="date"
+                  onChange={(e) => field.onChange(e.target.value)}
+                  value={field.value}
+                  className="border border-(--color-border)"
+                />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
