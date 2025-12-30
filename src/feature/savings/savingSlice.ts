@@ -1,9 +1,7 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-
 interface SavingsState {
     total: number;
 }
-
 const initialState: SavingsState = {
     total: 0,
 }

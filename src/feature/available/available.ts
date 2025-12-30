@@ -1,8 +1,8 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { selectBalance } from "../transactions/selectors";
-import { selectSavings } from "../savings/selector";
+import { selectSavingsTotal } from "../savings/selector";
 
 export const selectAvailableBalance = createSelector(
-    [selectBalance, selectSavings],
+    [selectBalance, selectSavingsTotal],
     (balance, savings) => balance.total - savings
 );

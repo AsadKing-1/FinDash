@@ -17,7 +17,7 @@ export function TransactionsHistory() {
         return (
           <div key={transaction.id ?? `${transaction.date}-${transaction.amount}`} className="group flex items-center justify-between p-4 rounded-xl bg-(--color-card) border border-(--color-border) transition-all hover:translate-y-px hover:shadow-[0_0_0_1px_rgba(138,43,226,0.3)]">
             <div className="flex items-center gap-3">
-              <div className="w-5 h- rounded-full bg-(--gradient-accent) flex items-center justify-center text-white">
+              <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center text-white">
                 {category?.icon}
               </div>
 

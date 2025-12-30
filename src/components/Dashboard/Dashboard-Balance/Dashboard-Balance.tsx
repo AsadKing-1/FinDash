@@ -1,7 +1,13 @@
-import { useDashboardBalance } from "../../../hooks/useDashboardBalance/useDashboardBalance";
+import { useSelector } from "react-redux";
+import { selectBalance } from "../../../feature/transactions/selectors";
+import { selectSavingsTotal } from "@/feature/savings/selector";
+import { selectAvailableBalance } from "../../../feature/available/available";
+
 
 export const DashboardBalance = () => {
-  const { balance, savings, available } = useDashboardBalance();
+  const balance = useSelector(selectBalance);
+  const savings = useSelector(selectSavingsTotal);
+  const available = useSelector(selectAvailableBalance);
 
   return (
     <div className="bg-(--color-card) p-5 rounded-md border border-(--color-border)">
@@ -43,7 +49,7 @@ export const DashboardBalance = () => {
         <div className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.01),transparent)] p-3 rounded-md">
           <div className="text-[14px] text-(--color-muted)">Savings:</div>
           <div className="font-extrabold text-accent-2 text-[18px]">
-            $ {savings}
+            ${savings}
           </div>
         </div>
       </div>
