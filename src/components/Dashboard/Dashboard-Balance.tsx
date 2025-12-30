@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
-import { selectBalance } from "../../../feature/transactions/selectors";
+import { selectBalance } from "../../feature/transactions/selectors";
 import { selectSavingsTotal } from "@/feature/savings/selector";
-import { selectAvailableBalance } from "../../../feature/available/available";
+import { selectAvailableBalance } from "../../feature/available/available";
 
 
 export const DashboardBalance = () => {

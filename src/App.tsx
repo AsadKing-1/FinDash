@@ -1,7 +1,7 @@
 import { AppLayout } from "./layouts/AppLayout";
-import { Dashboard } from "./pages/Dashboard";
-import { Analytics } from "./pages/Analytics";
-import { Transactions } from "./pages/Transactions";
+import { Dashboard } from "./components/Dashboard/Dashboard";
+import { Analytics } from "./components/Analytics/Analytics";
+import { Transactions } from "./components/Transactions/Transactions";
 
 
 function App() {

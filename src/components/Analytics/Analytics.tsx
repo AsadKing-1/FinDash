@@ -1,6 +1,6 @@
-import { AnalyticsDonut } from "@/components/Analytics/AnalyticsChart/AnalyticsChart";
-import { AnalyticsEmptyState } from "@/components/Analytics/AnalyticsEmptyState/AnalyticsEmptyState";
-import { AnalyticsTable } from "@/components/Analytics/AnalyticsTable/AnalyticsTable";
+import { AnalyticsDonut } from "@/components/Analytics/AnalyticsChart";
+import { AnalyticsEmptyState } from "@/components/Analytics/AnalyticsEmptyState";
+import { AnalyticsTable } from "@/components/Analytics/AnalyticsTable";
 import { useSelector } from "react-redux";
 import { selectAnalytics } from "@/feature/analytics/selector";
 

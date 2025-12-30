@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import { selectTransactions } from "@/feature/transactions/selectors";
 
-import { TransactionsEmptyState } from "@/components/Transactions/TransactionsEmptyState/TransactionsEmptyState";
-import { TransactionsHistory } from "@/components/Transactions/TransactionsHistory/TransactionHistory";
+import { TransactionsEmptyState } from "@/components/Transactions/TransactionsEmptyState";
+import { TransactionsHistory } from "@/components/Transactions/TransactionHistory";
 
 export function Transactions() {
 
