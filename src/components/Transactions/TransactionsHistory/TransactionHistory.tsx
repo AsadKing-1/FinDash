@@ -1,19 +1,7 @@
 import { useSelector } from "react-redux";
 import { selectTransactions } from "@/feature/transactions/selectors";
+import { CATEGORIES } from "@/feature/transactions/categories";
 
-const CATEGORIES = [
-  { label: "Food", icon: "🍔", type: "expense" },
-  { label: "Transport", icon: "🚕", type: "expense" },
-  { label: "Shopping", icon: "🛍️", type: "expense" },
-  { label: "Games", icon: "🎮", type: "expense" },
-  { label: "Rent", icon: "🏠", type: "expense" },
-  { label: "Health", icon: "💊", type: "expense" },
-  { label: "Education", icon: "📚", type: "expense" },
-  { label: "Subscriptions", icon: "💳", type: "expense" },
-  { label: "Salary", icon: "💰", type: "income" },
-  { label: "Bonus", icon: "🎁", type: "income" },
-  { label: "Savings", icon: "🏦", type: "savings" },
-];
 
 export function TransactionsHistory() {
   const t = useSelector(selectTransactions);
@@ -22,22 +10,20 @@ export function TransactionsHistory() {
     <div className="flex flex-col gap-2">
       {t.map((transaction) => {
         const category = CATEGORIES.find(
-          (c) => c.label === transaction.category.label
+          (c) =>
+            c.label === transaction.category?.label || c.id === transaction.category?.id
         );
 
         return (
-          <div
-            key={transaction.id}
-            className="bg-(--color-bg) p-4 rounded-md flex justify-between items-center transition-colors hover:bg-(--color-glass)"
-          >
+          <div key={transaction.id ?? `${transaction.date}-${transaction.amount}`} className="group flex items-center justify-between p-4 rounded-xl bg-(--color-card) border border-(--color-border) transition-all hover:translate-y-px hover:shadow-[0_0_0_1px_rgba(138,43,226,0.3)]">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 flex items-center justify-center rounded-md bg-accent text-xl">
-                {category?.icon ?? "💳"}
+              <div className="w-5 h- rounded-full bg-(--gradient-accent) flex items-center justify-center text-white">
+                {category?.icon}
               </div>
 
               <div className="flex flex-col">
-                <span className="text-[18px] text-white">
-                  {transaction.category.label}
+                <span className="text-sm font-medium text-(--color-text)">
+                  {transaction.category?.label}
                 </span>
                 <span className="text-xs text-(--color-muted)">
                   {transaction.date}
@@ -46,16 +32,10 @@ export function TransactionsHistory() {
             </div>
 
             <div className="flex flex-col items-end">
-              <span
-                className={`font-bold ${
-                  transaction.category.type === "expense"
-                    ? "text-red-500"
-                    : "text-emerald-500"
-                }`}
-              >
-                {transaction.category.type === "expense" ? "-" : "+"}$
-                {transaction.amount.toLocaleString()}
+              <span className={`text-sm font-medium ${transaction.category?.type === "income" ? "text-success" : "text-danger"}`}>
+                {transaction.category?.type === "income" ? "+" : "-"} $ {transaction.amount}
               </span>
+              <span className="text-[11px] text-(--color-muted)">{category?.label}</span>
             </div>
           </div>
         );
