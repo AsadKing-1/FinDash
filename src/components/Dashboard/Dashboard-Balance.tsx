@@ -10,7 +10,7 @@ export const DashboardBalance = () => {
   const available = useSelector(selectAvailableBalance);
 
   return (
-    <div className="bg-(--color-card) p-5 rounded-md border border-(--color-border)">
+    <div className="bg-(--color-card) p-5 rounded-md border border-(--color-border) mt-5">
       <div className="flex justify-end">
         <div className="btn w-35 p-0.5 text-[14px] rounded-xl text-center">
           Purple Theme

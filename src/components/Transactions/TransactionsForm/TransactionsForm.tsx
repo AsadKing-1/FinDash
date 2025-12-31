@@ -11,7 +11,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../../../ui/select";
+} from "../../ui/select";
 
 import {
   transactionSchema,
@@ -25,9 +25,9 @@ import {
   FormLabel,
   FormControl,
   FormMessage,
-} from "../../../ui/form";
-import { Input } from "../../../ui/input";
-import { Button } from "../../../ui/button";
+} from "../../ui/form";
+import { Input } from "../../ui/input";
+import { Button } from "../../ui/button";
 
 export function TransactionsForm({ onClose }: { onClose: () => void }) {
   const dispatch = useDispatch();
