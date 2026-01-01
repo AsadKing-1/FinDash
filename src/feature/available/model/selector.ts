@@ -1,6 +1,6 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { selectBalance } from "../transactions/selectors";
-import { selectSavingsTotal } from "../savings/selector";
+import { selectBalance } from "../../transactions/model/selectors";
+import { selectSavingsTotal } from "../../savings/model/selector";
 
 export const selectAvailableBalance = createSelector(
     [selectBalance, selectSavingsTotal],

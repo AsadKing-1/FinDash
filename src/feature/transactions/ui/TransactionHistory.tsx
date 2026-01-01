@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectTransactions } from "@/feature/transactions/selectors";
-import { CATEGORIES } from "@/feature/transactions/categories";
+import { selectTransactions } from "@feature/transactions/model/selectors";
+import { CATEGORIES } from "@feature/transactions/model/categories";
 
 
 export function TransactionsHistory() {

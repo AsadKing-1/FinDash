@@ -1,4 +1,4 @@
-import { DashboardBalance } from "@/components/Dashboard/Dashboard-Balance"
+import { DashboardBalance } from "./DashboardBalance"
 
 export function Dashboard() {
     return (

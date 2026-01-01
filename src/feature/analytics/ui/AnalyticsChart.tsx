@@ -1,7 +1,7 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 import { useSelector } from "react-redux";
-import { selectAnalytics } from "@/feature/analytics/selector";
-import { getCategoryColor } from "@/feature/analytics/colors";
+import { selectAnalytics } from "@/feature/analytics/model/selector";
+import { getCategoryColor } from "@/feature/analytics/model/colors";
 
 export function AnalyticsDonut() {
     const data = useSelector(selectAnalytics);

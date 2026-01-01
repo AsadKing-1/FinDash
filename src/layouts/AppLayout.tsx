@@ -1,5 +1,5 @@
-import Header from "@/components/Header/Header";
-import { AddTransactionModal } from "@/components/Transactions/TransactionsForm/AddTransactionModal";
+import Header from "@/layouts/Header/Header";
+import { AddTransactionModal } from "@/feature/transactions/ui/TransactionsForm/AddTransactionModal";
 
 
 import { useState } from "react";

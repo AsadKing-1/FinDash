@@ -3,6 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
+      "@app/*": ["./src/app/*"],
+      "@components/*": ["./src/components/*"],
+      "@feature/*": ["./src/feature/*"],
+      "@layouts/*": ["./src/layouts/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@types/*": ["./src/types/*"],
+      "@ui/*": ["./src/ui/*"]
     },
     "strict": true,
     "alwaysStrict": true,

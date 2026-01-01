@@ -1,5 +1,5 @@
 import { createSelector } from "@reduxjs/toolkit";
-import { selectTransactions } from "@/feature/transactions/selectors";
+import { selectTransactions } from "@/feature/transactions/model/selectors";
 
 export const selectAnalytics = createSelector(
     [selectTransactions],

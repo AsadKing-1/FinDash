@@ -1,8 +1,8 @@
-import { AnalyticsDonut } from "@/components/Analytics/AnalyticsChart";
-import { AnalyticsEmptyState } from "@/components/Analytics/AnalyticsEmptyState";
-import { AnalyticsTable } from "@/components/Analytics/AnalyticsTable";
+import { AnalyticsDonut } from "@/feature/analytics/ui/AnalyticsChart";
+import { AnalyticsEmptyState } from "@/feature/analytics/ui/AnalyticsEmptyState";
+import { AnalyticsTable } from "@/feature/analytics/ui/AnalyticsTable";
 import { useSelector } from "react-redux";
-import { selectAnalytics } from "@/feature/analytics/selector";
+import { selectAnalytics } from "@/feature/analytics/model/selector";
 
 export function Analytics() {
   const data = useSelector(selectAnalytics);

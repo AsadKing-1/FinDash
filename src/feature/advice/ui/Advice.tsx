@@ -1,15 +1,14 @@
 import { useState } from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/ui/button";
 
-import { adviceDataEn } from "./adviceListEN";
-import { adviceDataRu } from "./adviceListRU";
+import { adviceData } from "../model/adviceData";
 
 export function Advice() {
     const [language, setLanguage] = useState<"EN" | "RU">("EN");
-    const minLength = Math.min(adviceDataEn.length, adviceDataRu.length);
+    const minLength = Math.min(adviceData.EN.length, adviceData.RU.length);
     const [index, setIndex] = useState<number>(() => Math.floor(Math.random() * minLength));
-    const adviceList = language === "EN" ? adviceDataEn : adviceDataRu;
+    const adviceList = language === "EN" ? adviceData.EN : adviceData.RU;
 
     return (
         <div className="bg-(--color-card) border border-(--color-border) p-5 rounded-md ">

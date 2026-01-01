@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
-import { selectAnalytics } from "@/feature/analytics/selector";
-import { getCategoryColor } from "@/feature/analytics/colors";
+import { selectAnalytics } from "@/feature/analytics/model/selector";
+import { getCategoryColor } from "@feature/analytics/model/colors";
 
 export function AnalyticsTable() {
     const data = useSelector(selectAnalytics);

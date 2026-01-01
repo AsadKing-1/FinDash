@@ -1,6 +1,6 @@
-import { selectTransactions } from "../transactions/selectors";
+import { selectTransactions } from "@/feature/transactions/model/selectors";
 import { createSelector } from "@reduxjs/toolkit";
-import type { Transaction } from "../../types/transaction";
+import type { Transaction } from "../../transactions/model/types";
 
 export const selectSavingsTotal = createSelector(
   [selectTransactions],

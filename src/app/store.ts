@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
-import transactionsReducer from "../feature/transactions/transactionsSlices";
-import savingSliceReducer from "../feature/savings/savingSlice";
+import transactionsReducer from "../feature/transactions/model/transactionsSlice";
+import savingSliceReducer from "../feature/savings/model/savingSlice";
 
 const rootReducer = {
   transactions: transactionsReducer,

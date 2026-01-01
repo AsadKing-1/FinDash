@@ -1,5 +1,5 @@
-import type { Currency } from "./currency";
-import type { Category } from "./category";
+import type { Currency } from "@/types/currency";
+import type { Category } from "@/types/category";
 
 export interface Transaction {
     id: string;

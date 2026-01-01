@@ -2,7 +2,7 @@ import { HeaderBalance } from "./HeaderBalance";
 import { HeaderBrand } from "./HeaderBrand";
 
 import { useSelector } from "react-redux";
-import { selectAvailableBalance } from "@/feature/available/available";
+import { selectAvailableBalance } from "@/feature/available/model/selector";
 
 function Header({ openModalFN }: { openModalFN: (value: boolean) => void }) {
   const available = useSelector(selectAvailableBalance);

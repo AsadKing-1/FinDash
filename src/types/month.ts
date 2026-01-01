@@ -1,4 +1,4 @@
-import type { Transaction } from "./transaction";
+import type { Transaction } from "@feature/transactions/model/types";
 
 export interface Month {
     id: string;
