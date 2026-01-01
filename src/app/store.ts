@@ -1,3 +1,14 @@
+/**
+ * Конфигурация  Redux toolkit store
+ *
+ *
+ * - обьединяет все редьюсеры
+ * - сохраняеет состояние в localStorage (ключ: "finDash")
+ *
+ * Реалицазия сделана вручную
+ * что бы не подключать дополнительные библиотеки
+ */
+
 import { configureStore } from "@reduxjs/toolkit";
 import transactionsReducer from "../feature/transactions/model/transactionsSlice";
 import savingSliceReducer from "../feature/savings/model/savingSlice";
@@ -12,6 +23,13 @@ export type RootState = {
   savings: ReturnType<typeof savingSliceReducer>;
 };
 
+/**
+ * Загружает состояние Redux из localStorage
+ *
+ * Возвращает undefined, если:
+ * - состояние отсутствует
+ * - данные повреждены
+ */
 const loadState = (): RootState | undefined => {
   try {
     const serializedState = localStorage.getItem("finDash");
