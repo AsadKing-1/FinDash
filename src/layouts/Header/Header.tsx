@@ -8,8 +8,8 @@ function Header({ openModalFN }: { openModalFN: (value: boolean) => void }) {
   const available = useSelector(selectAvailableBalance);
 
   return (
-    <header className="bg-(--color-card) shadow-soft rounded-md border border-border">
-      <div className="flex flex-col gap-5 p-3.5">
+    <header className="bg-(--color-card) w-full shadow-soft rounded-md border border-border">
+      <div className="flex flex-col gap-5 p-3.5 md:flex md:flex-row md:justify-between md:items-center">
         <HeaderBrand />
         <HeaderBalance openModalFN={openModalFN} Balance={available} />
       </div>

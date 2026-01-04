@@ -8,10 +8,12 @@
  * Реалицазия сделана вручную
  * что бы не подключать дополнительные библиотеки
  */
-
+import { type TypedUseSelectorHook, useSelector } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import transactionsReducer from "../feature/transactions/model/transactionsSlice";
 import savingSliceReducer from "../feature/savings/model/savingSlice";
+
+export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 
 const rootReducer = {
   transactions: transactionsReducer,

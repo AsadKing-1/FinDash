@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
-import { selectTransactions } from "@feature/transactions/model/selectors";
+import { selectLastTransactions } from "@feature/transactions/model/selectors";
 import { CATEGORIES } from "@feature/transactions/model/categories";
 
 
 export function TransactionsHistory() {
-  const t = useSelector(selectTransactions);
+  const t = useSelector(selectLastTransactions);
 
   return (
     <div className="flex flex-col gap-2">

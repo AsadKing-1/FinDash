@@ -2,7 +2,7 @@ import { DashboardBalance } from "./DashboardBalance"
 
 export function Dashboard() {
     return (
-        <section id="dashboard">
+        <section className="w-full" id="dashboard">
             <DashboardBalance/>
         </section>
     )

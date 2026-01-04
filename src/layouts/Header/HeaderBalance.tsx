@@ -7,19 +7,19 @@ interface HeaderBalanceProps {
 
 export const HeaderBalance = ({ Balance, openModalFN }: HeaderBalanceProps) => {
   return (
-    <div className="flex flex-col gap-1">
-      <div className="bg-[#16181a]/50 p-3 rounded-lg border-border border">
+    <div className="flex flex-col gap-1 md:flex-row md:items-center">
+      <div className="bg-[#16181a]/50 p-2 rounded-lg border-border border md:flex md:items-center md:gap-2 md:border-none md:mt-2.5">
         <div className="text-[#b9bfc4] font-semibold text-[14px]">
           Current Balance:
         </div>
         <div>
-          <div className="text-[19px] -mt-0.5 text-white font-extrabold">
+          <div className="text-[19px]  text-white font-extrabold md:text-[18px]">
             $ {Balance}
           </div>
         </div>
       </div>
-      <div className="p-3 ">
-        <div className="text-[14px] text-[#b9bfc4]">Quick Actions:</div>
+      <div className="p-3">
+        <div className="text-[14px] text-[#b9bfc4] md:hidden">Quick Actions:</div>
         <div className="flex justify-between items-center gap-1 mt-2">
           <div className="w-full">
             <Button onClick={() => openModalFN(true)} className="w-full btn font-semibold">

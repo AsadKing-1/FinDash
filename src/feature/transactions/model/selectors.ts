@@ -30,6 +30,15 @@ export const selectBalance = createSelector(
   }
 );
 
+export const selectLastTransactions = createSelector(
+  [selectTransactions],
+  (transactions) => {
+    return [...transactions]
+      .sort((a, b) => b.createdAt - a.createdAt)
+      .slice(0, 5);
+  }
+);
+
 export const selectMonthPercent = createSelector(
   [selectBalance],
   ({ income, expense }) => {

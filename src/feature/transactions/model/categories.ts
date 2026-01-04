@@ -18,7 +18,7 @@ export const CATEGORIES: (Category & { icon: string })[] = [
 
   /* ===================== INCOME ===================== */
   { id: "salary", label: "Salary", type: "income", icon: "💰" },
-  { id: "freelance", label: "Freelance", type: "income", icon: "🧑‍💻" },
+  { id: "freelance", label: "Freelance", type: "income", icon: "💻" },
   { id: "business", label: "Business", type: "income", icon: "🏢" },
   { id: "bonus", label: "Bonus", type: "income", icon: "🎁" },
   { id: "investment", label: "Investments", type: "income", icon: "📈" },

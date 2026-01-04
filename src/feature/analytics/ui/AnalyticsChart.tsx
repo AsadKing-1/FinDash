@@ -35,7 +35,7 @@ export function AnalyticsDonut() {
 
             <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                 <span className="text-[18px] font-bold text-(--color-text)">
-                    ₽ {total.toLocaleString("ru-RU")}
+                    $ {total.toLocaleString("ru-RU")}
                 </span>
                 <span className="text-[11px] tracking-wide text-(--color-muted)">
                     TOTAL

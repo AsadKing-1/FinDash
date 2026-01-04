@@ -10,14 +10,7 @@ export function Analytics() {
 
   return (
     <section
-      className="
-            bg-(--color-card)
-            mt-5
-            p-6
-            rounded-2xl
-            border border-(--color-border)
-        "
-    >
+      className="w-full bg-(--color-card) p-6 rounded-2xl border border-(--color-border) md:h-full md:mt-0">
       <header className="mb-5">
         <p className="text-[20px] font-semibold text-(--color-text)">
           Cost Allocation

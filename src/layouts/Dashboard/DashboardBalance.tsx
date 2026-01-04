@@ -2,15 +2,30 @@ import { useSelector } from "react-redux";
 import { selectBalance } from "../../feature/transactions/model/selectors";
 import { selectSavingsTotal } from "../../feature/savings/model/selector";
 import { selectAvailableBalance } from "../../feature/available/model/selector";
+import { selectMonthPercent } from "../../feature/transactions/model/selectors";
+
+import { useEffect, useRef } from "react";
 
 
 export const DashboardBalance = () => {
   const balance = useSelector(selectBalance);
   const savings = useSelector(selectSavingsTotal);
   const available = useSelector(selectAvailableBalance);
+  const monthPercent = useSelector(selectMonthPercent);
+
+  const prevRef = useRef<number | null>(null);
+  const prev = prevRef.current;
+
+  useEffect(() => {
+    prevRef.current = monthPercent;
+  }, [monthPercent]);
+
+  const delta = prev !== null ? monthPercent - prev : 0;
+
+  const trend = delta > 0 ? "up" : delta < 0 ? "down" : "stable";
 
   return (
-    <div className="bg-(--color-card) p-5 rounded-md border border-(--color-border) mt-5">
+    <div className="bg-(--color-card) p-5 rounded-md border border-(--color-border)">
       <div className="flex justify-end">
         <div className="btn w-35 p-0.5 text-[14px] rounded-xl text-center">
           Purple Theme
@@ -25,11 +40,15 @@ export const DashboardBalance = () => {
             </div>
           </div>
         </div>
-        <div className="text-[22px] text-(--color-text) font-extrabold">
-          $ {available}
+        <div className="flex items-center gap-2 text-[22px] text-(--color-text) font-extrabold">
+          $ {available} ·
+          <p className={`text-[16px] ${trend === "up" ? "text-emerald-500" : trend === "down" ? "text-red-500" : "text-gray-500"}`}>{monthPercent.toFixed(0)} %
+            {trend === "up" && <span className="text-emerald-500 text-[12px] ml-2">▲</span>}
+            {trend === "down" && <span className="text-red-500 text-[12px] ml-2">▼</span>}
+          </p>
         </div>
       </div>
-      <div className="flex flex-col gap-2 mt-2 md:flex-row-reverse">
+      <div className="flex flex-col gap-2 mt-2 md:flex-row">
         <div className="w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.01),transparent)] p-3 rounded-md">
           <div className="text-[14px] text-(--color-muted)">
             Income (Month):

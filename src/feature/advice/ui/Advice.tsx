@@ -23,7 +23,11 @@ export function Advice() {
                 <p>{adviceList[index]?.text}</p>
             </div>
             <div>
-                <Button className="btn w-full h-7.5 text-[16px] mt-3" onClick={() => setIndex(Math.floor(Math.random() * minLength))}>Next</Button>
+                <Button className="btn w-full h-7.5 text-[16px] mt-3" onClick={() => setIndex(Math.floor(Math.random() * minLength))}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-7">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
+                    </svg>
+                </Button>
             </div>
         </div>
     )

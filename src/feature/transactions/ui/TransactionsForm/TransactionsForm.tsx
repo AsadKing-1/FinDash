@@ -122,7 +122,7 @@ export function TransactionsForm({ onClose }: { onClose: () => void }) {
               <FormLabel>Amount</FormLabel>
               <FormControl>
                 <div className="flex justify-between items-center gap-2">
-                  <p className="font-bold text-[20px]">$</p>
+                  <p className="font-bold text-[20px] md:text-[25px]">$</p>
                   <Input
                     type="number"
                     value={field.value === 0 ? "" : field.value}
@@ -130,7 +130,7 @@ export function TransactionsForm({ onClose }: { onClose: () => void }) {
                       const v = e.target.value;
                       field.onChange(v === "" ? 0 : Number(v));
                     }}
-                    className="border-l-0 text-[30px] font-bold border-r-0 border-t-0 border-b-2 py-6 border-(--color-border) focus:border-b-accent-2 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
+                    className="border-l-0 text-[30px] md:text-[25px] font-bold border-r-0 border-t-0 border-b-2 py-6 border-(--color-border) focus:border-b-accent-2 [appearance:textfield] [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none focus:outline-none active:outline-none"
                     placeholder="0"
                   />
                 </div>
